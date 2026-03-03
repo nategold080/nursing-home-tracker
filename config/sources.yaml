@@ -1,0 +1,92 @@
+# CMS Data Sources for Nursing Home Tracker
+# All sources are freely downloadable CSVs from data.cms.gov
+
+sources:
+  health_deficiencies:
+    name: "Health Deficiencies"
+    dataset_id: "r5ix-sfxw"
+    url: "https://data.cms.gov/provider-data/dataset/r5ix-sfxw"
+    download_url: "https://data.cms.gov/provider-data/api/1/datastore/query/r5ix-sfxw/0?limit=0&offset=0&count=true&results=true&schema=true&keys=true&format=csv"
+    description: "Health deficiency citations from standard surveys and complaint investigations"
+    key_fields:
+      - federal_provider_number
+      - survey_date
+      - deficiency_tag_number
+      - scope_severity_code
+      - deficiency_description
+    update_frequency: "monthly"
+
+  penalties:
+    name: "Penalties"
+    dataset_id: "g6vv-u9sr"
+    url: "https://data.cms.gov/provider-data/dataset/g6vv-u9sr"
+    download_url: "https://data.cms.gov/provider-data/api/1/datastore/query/g6vv-u9sr/0?limit=0&offset=0&count=true&results=true&schema=true&keys=true&format=csv"
+    description: "Civil money penalties and payment denials imposed on nursing homes"
+    key_fields:
+      - federal_provider_number
+      - penalty_type
+      - fine_amount
+      - penalty_date
+    update_frequency: "monthly"
+
+  ownership:
+    name: "Ownership"
+    dataset_id: "y2hd-n93e"
+    url: "https://data.cms.gov/provider-data/dataset/y2hd-n93e"
+    download_url: "https://data.cms.gov/provider-data/api/1/datastore/query/y2hd-n93e/0?limit=0&offset=0&count=true&results=true&schema=true&keys=true&format=csv"
+    description: "Ownership information for currently active nursing homes"
+    key_fields:
+      - federal_provider_number
+      - owner_name
+      - owner_type
+      - role_description
+      - association_date
+    update_frequency: "monthly"
+
+  provider_info:
+    name: "Provider Information"
+    dataset_id: "4pq5-n9py"
+    url: "https://data.cms.gov/provider-data/dataset/4pq5-n9py"
+    download_url: "https://data.cms.gov/provider-data/api/1/datastore/query/4pq5-n9py/0?limit=0&offset=0&count=true&results=true&schema=true&keys=true&format=csv"
+    description: "General nursing home information including star ratings, bed counts, staffing"
+    key_fields:
+      - federal_provider_number
+      - provider_name
+      - provider_state
+      - overall_rating
+      - staffing_rating
+      - quality_rating
+      - number_of_certified_beds
+    update_frequency: "monthly"
+
+  survey_summary:
+    name: "Survey Summary"
+    dataset_id: "tbry-pc2d"
+    url: "https://data.cms.gov/provider-data/dataset/tbry-pc2d"
+    download_url: "https://data.cms.gov/provider-data/api/1/datastore/query/tbry-pc2d/0?limit=0&offset=0&count=true&results=true&schema=true&keys=true&format=csv"
+    description: "Summary of inspection surveys conducted at nursing homes"
+    key_fields:
+      - federal_provider_number
+      - survey_date
+      - survey_type
+    update_frequency: "monthly"
+
+  quality_measures:
+    name: "Quality Measures"
+    dataset_id: "ijh5-nb2v"
+    url: "https://data.cms.gov/provider-data/dataset/ijh5-nb2v"
+    download_url: "https://data.cms.gov/provider-data/api/1/datastore/query/ijh5-nb2v/0?limit=0&offset=0&count=true&results=true&schema=true&keys=true&format=csv"
+    description: "Quality measure scores for nursing homes"
+    key_fields:
+      - federal_provider_number
+      - measure_code
+      - measure_description
+      - score
+    update_frequency: "quarterly"
+
+# Download configuration
+download:
+  user_agent: "DataFactory/1.0 (research; contact: nathanmauricegoldberg@gmail.com)"
+  delay_seconds: 2
+  max_retries: 3
+  cache_dir: "data/raw"

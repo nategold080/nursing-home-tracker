@@ -1,0 +1,106 @@
+# Owner Type Classification Rules
+# Used to classify nursing home owners as PE, REIT, nonprofit, government, etc.
+
+owner_classifications:
+  private_equity:
+    description: "Private equity firms and their portfolio companies"
+    name_patterns:
+      - "(?i)capital\\s+(partners|management|group|advisors)"
+      - "(?i)(private\\s+equity|PE\\s+fund)"
+      - "(?i)(holdings|investment)\\s+(group|partners|company)"
+      - "(?i)partners\\s+(fund|capital|equity)"
+    known_firms:
+      - "Carlyle Group"
+      - "Formation Capital"
+      - "Portopiccolo Group"
+      - "Fillmore Capital Partners"
+      - "SavaSeniorCare"
+      - "Genesis Healthcare"
+      - "Golden Living"
+      - "Kindred Healthcare"
+      - "Brookdale Senior Living"
+
+  reit:
+    description: "Real Estate Investment Trusts"
+    name_patterns:
+      - "(?i)(REIT|real\\s+estate\\s+investment\\s+trust)"
+      - "(?i)(healthcare|health\\s+care)\\s+(trust|properties|REIT)"
+    known_firms:
+      - "Sabra Health Care REIT"
+      - "CareTrust REIT"
+      - "Omega Healthcare Investors"
+      - "LTC Properties"
+      - "National Health Investors"
+      - "Diversified Healthcare Trust"
+
+  nonprofit:
+    description: "Nonprofit organizations and religious organizations"
+    name_patterns:
+      - "(?i)(nonprofit|non-profit|not-for-profit)"
+      - "(?i)(church|diocese|catholic|lutheran|methodist|baptist|jewish)"
+      - "(?i)(foundation|charitable|ministry|ministries)"
+      - "(?i)(association|society)"
+
+  government:
+    description: "Government-owned facilities"
+    name_patterns:
+      - "(?i)(county|city|town|village|borough)\\s+of"
+      - "(?i)(state|municipal|public)"
+      - "(?i)(veterans|VA\\s+)"
+      - "(?i)department\\s+of"
+
+  for_profit_chain:
+    description: "For-profit chains (non-PE)"
+    name_patterns:
+      - "(?i)(inc\\.|incorporated|corp\\.|corporation|LLC|LP)"
+    # Note: this is a catch-all after PE/REIT classification
+
+# Deficiency severity levels (CMS standard)
+severity_levels:
+  isolated:
+    scope: "isolated"
+    description: "Affects one or a few residents"
+  pattern:
+    scope: "pattern"
+    description: "Affects more than a limited number of residents"
+  widespread:
+    scope: "widespread"
+    description: "Affects many or all residents"
+
+severity_grades:
+  - code: "A"
+    level: "no_actual_harm_potential_minimal"
+    description: "No actual harm with potential for minimal harm"
+  - code: "B"
+    level: "no_actual_harm_potential_minimal"
+    description: "No actual harm with potential for minimal harm"
+  - code: "C"
+    level: "no_actual_harm_potential_minimal"
+    description: "No actual harm with potential for minimal harm"
+  - code: "D"
+    level: "no_actual_harm_potential_more_than_minimal"
+    description: "No actual harm with potential for more than minimal harm"
+  - code: "E"
+    level: "no_actual_harm_potential_more_than_minimal"
+    description: "No actual harm with potential for more than minimal harm"
+  - code: "F"
+    level: "no_actual_harm_potential_more_than_minimal"
+    description: "No actual harm with potential for more than minimal harm"
+  - code: "G"
+    level: "actual_harm"
+    description: "Actual harm that is not immediate jeopardy"
+  - code: "H"
+    level: "actual_harm"
+    description: "Actual harm that is not immediate jeopardy"
+  - code: "I"
+    level: "actual_harm"
+    description: "Actual harm that is not immediate jeopardy"
+  - code: "J"
+    level: "immediate_jeopardy"
+    description: "Immediate jeopardy to resident health or safety"
+  - code: "K"
+    level: "immediate_jeopardy"
+    description: "Immediate jeopardy to resident health or safety"
+  - code: "L"
+    level: "immediate_jeopardy"
+    description: "Immediate jeopardy to resident health or safety"

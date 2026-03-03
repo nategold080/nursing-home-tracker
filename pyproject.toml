@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "nursing-home-tracker"
+version = "0.1.0"
+description = "Cross-linked database of nursing home deficiencies, penalties, ownership, staffing, and quality measures from CMS data"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    {name = "Nathan Goldberg", email = "nathanmauricegoldberg@gmail.com"}
+]
+
+[project.scripts]
+nursing-home-tracker = "src.cli:cli"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
