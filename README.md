@@ -38,12 +38,12 @@ All data is freely available from [CMS Provider Data Catalog](https://data.cms.g
 
 | Dataset | Records | Update Frequency |
 |---------|---------|-----------------|
-| Health Deficiencies | ~436K | Monthly |
-| Penalties | ~17K | Monthly |
-| Ownership | ~159K | Monthly |
+| Health Deficiencies | ~420K | Monthly |
+| Penalties | ~52K | Monthly |
+| Ownership | ~210K | Monthly |
 | Provider Info | ~15K | Monthly |
-| Survey Summary | ~44K | Monthly |
-| Quality Measures | ~59K | Quarterly |
+| Survey Summary | ~48K | Monthly |
+| Quality Measures | ~285K | Quarterly |
 
 ## Dashboard
 
