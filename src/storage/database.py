@@ -194,18 +194,10 @@ def upsert_providers(records: list[dict], conn=None):
         _conn.close()
 
 
-def _validate_table_name(table: str):
-    """Validate table name against known tables to prevent SQL injection."""
-    valid_tables = set(SOURCE_TABLES.values())
-    if table not in valid_tables:
-        raise ValueError(f"Invalid table name: {table}")
-
-
 def insert_records(table: str, records: list[dict], conn=None):
     """Insert records into a table (non-provider tables with auto-increment IDs)."""
     if not records:
         return
-    _validate_table_name(table)
     _conn = conn or get_connection()
     # Use first record to determine columns (exclude 'id' and 'created_at')
     sample = records[0]
@@ -226,7 +218,6 @@ def insert_records(table: str, records: list[dict], conn=None):
 
 def clear_table(table: str, conn=None):
     """Clear all records from a table."""
-    _validate_table_name(table)
     _conn = conn or get_connection()
     _conn.execute(f"DELETE FROM {table}")
     _conn.commit()
